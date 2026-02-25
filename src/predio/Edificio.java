@@ -9,16 +9,6 @@ public class Edificio {
         this.elevador = new Elevador();
     }
 
-    public void subir() {
-        this.elevador.setStatus(Status.SUBINDO);
-        this.elevador.setAndarAtual(this.elevador.getAndarAtual() + 1);
-    }
-
-
-    public void descer() {
-        this.elevador.setStatus(Status.DESCENDO);
-        this.elevador.setAndarAtual(this.elevador.getAndarAtual() - 1);
-    }
 
     public void irParaAndar(int destino) throws InterruptedException {
         if (!checar(destino)) {
@@ -32,11 +22,9 @@ public class Edificio {
             System.out.println("saindo do andar " + this.elevador.getAndarAtual() + " " + this.elevador.getStatus() +" para o andar " + this.elevador.getAndarAtual() + 1);
 
             if ( destino > this.elevador.getAndarAtual() ){
-                subir();
-            }
-
-            if (destino < this.elevador.getAndarAtual()) {
-                descer();
+                elevador.subir();
+            } else  {
+                elevador.descer();
             }
             Thread.sleep(sleepLength);
         }

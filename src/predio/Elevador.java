@@ -9,6 +9,17 @@ public class Elevador {
         this.status = Status.PARADO;
     }
 
+    public void subir() {
+        this.status = Status.SUBINDO;
+        this.andarAtual += 1;
+    }
+
+    public void descer() {
+        this.status = Status.DESCENDO;
+        this.andarAtual -= 1;
+    }
+
+
     public int getAndarAtual() {
         return andarAtual;
     }
